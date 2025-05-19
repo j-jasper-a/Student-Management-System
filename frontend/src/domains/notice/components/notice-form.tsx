@@ -86,7 +86,7 @@ export const NoticeForm: React.FC<Props> = ({
         sx={{ marginTop: '20px' }}
       />
       <TextField
-        {...register('content')}
+        {...register('description')} // NOTE: "content" doesn't exist, replaced with "description"
         error={Boolean(errors.description)}
         helperText={errors.description?.message}
         type='text'
@@ -118,9 +118,11 @@ export const NoticeForm: React.FC<Props> = ({
                 onChange={(e) => onChange(e.target.value)}
                 notched
               >
-                <MenuItem value='' disabled>
+                {/* NOTE: "status" is a required field and has only have 2 options, no use for an empty "None" option since it neither has a label nor would pass validation */}
+                {/* <MenuItem value='' disabled>
                   <em>None</em>
-                </MenuItem>
+                </MenuItem> */}
+
                 {noticeStatusList.map(({ name, id }) => (
                   <MenuItem key={id} value={id}>
                     {name}

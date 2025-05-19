@@ -66,5 +66,8 @@
     "*.{css,json,js,html}": [
       "prettier --write"
     ]
+  },
+  "volta": {
+    "node": "20.19.2"
   }
 }
